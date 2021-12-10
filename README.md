@@ -78,8 +78,8 @@ to add a new Friend, use: new_friend_path
 
 # DESIGN
 
-using bootstrap, we can simply change the initial table <tag> to (example) <table class="table table-stripped"> or use another one from bootstrap documentation
-same goes to <thead> tag, using <thead class="table-dark">
+using bootstrap, we can simply change the initial table tag> to (example) table class="table table-stripped"> or use another one from bootstrap documentation
+same goes to thead> tag, using thead class="table-dark">
 add/change buttons simply adding class: any-button-class after the path, example: <%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
 
 
@@ -189,8 +189,8 @@ a simple fix will be to hide the edit and destroyu from the index page, if the u
    edit
    destroy
 <% else %>
-   <td></td>
-   <td></td> (just to avoid blank cells on table)
+   td>/td>
+   td>/td> (just to avoid blank cells on table)
 <% end %>
 
 that is working on the index, but i can still get to the edit page of all created Friends
@@ -218,9 +218,9 @@ now the routes are locked by user id and a notice will be prompted when reddirec
 if we stil want to how the list of only the current user and not all the friends created even from other users
 simply add logic to the index page:
 <% if friend.user == current_user %>
-   <tr>
-      <td>all the params...</td>
-   </tr>
+   tr>
+      td>all the params.../td>
+   /tr>
 <% end %>
 
 obviously we can get to the show from other Friends by hand, so if needed, just change the Controller
@@ -244,21 +244,21 @@ show old home page or make another one
 <% end %>
 
 next, instead of "first name" and "last name", let's show only "name"
-on friend index page, swap both for only <th>Name</th>
+on friend index page, swap both for only th>Name/th>
 below, on the table, get the <%= friend.first_name %> and <%= friend.last_name %> on one row only
 
-next, if we want for the name to be clickable instead of having to click the "show" button, all we need to do is to add the show logic to the <th>Name<th> :
-<td> <%= link_to 'Show', friend %> <%= friend.first_name %> <%= friend.last_name %> </td>
+next, if we want for the name to be clickable instead of having to click the "show" button, all we need to do is to add the show logic to the th>Name th> :
+td> <%= link_to 'Show', friend %> <%= friend.first_name %> <%= friend.last_name %> /td>
 instead of showing 'Show' text, we want the name, change it! :
-<td> <%= link_to friend.first_name + ' ' + friend.last_name, friend %> <%= friend.first_name %> <%= friend.last_name %> </td>
+td> <%= link_to friend.first_name + ' ' + friend.last_name, friend %> <%= friend.first_name %> <%= friend.last_name %> /td>
 
 now we don't need the 'Show' button
-on the friend index page, we can change the colspan to two: <th colspan="2"></th> and delete the Show button <td> below
+on the friend index page, we can change the colspan to two: th colspan="2">/th> and delete the Show button td> below
 
 we can get rid of the Edit as well, because we can access it onb the show page
-so, colspan can be removed so just had a blank space to the <th> tag, the edit button below can be deleted, the only action we have now is 'Destroy'
+so, colspan can be removed so just had a blank space to the th> tag, the edit button below can be deleted, the only action we have now is 'Destroy'
 
-change the 'Destroy' text link to a button, maybe a bootstrap button, example, just add at the end of the <td>: class:"btn btn-outline-danger btn-sm"
+change the 'Destroy' text link to a button, maybe a bootstrap button, example, just add at the end of the td>: class:"btn btn-outline-danger btn-sm"
 
 add a delete function/button when editing a Friend
 copy the delete code from the index page
