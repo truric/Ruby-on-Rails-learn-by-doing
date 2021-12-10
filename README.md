@@ -263,3 +263,24 @@ change the 'Destroy' text link to a button, maybe a bootstrap button, example, j
 add a delete function/button when editing a Friend
 copy the delete code from the index page
 go to the edit page: paste the code and design the button to your needs, remember to add @ to friend
+
+
+# HEROKU
+rvm install 2.5.1 (because it's the version that was prompted)
+rvm use 2.5.1
+  change the ruby version on Gem file
+  delete Gemfile.locl
+bundle install
+git add Gemfile.lock
+git commit -am "Gemfile.lock ruby version"
+git push
+git push heroku main
+----too many builds error----
+heroku plugins:install heroku-builds
+heroku builds:cancel
+heroku restart
+git push heroku main
+----version ruby/rails error----
+change version using rvm install/use x.x.x
+----heroku wrong stack----
+heroku stack:set heroku-18 (or -20 or the version prompted)
